@@ -1,0 +1,88 @@
+{
+  "name": "@zairakai/{{PACKAGE_SLUG}}",
+  "version": "0.0.0",
+  "description": "{{PACKAGE_DESCRIPTION}}",
+  "keywords": [
+    "javascript",
+    "typescript",
+    "zairakai"
+  ],
+  "homepage": "https://gitlab.com/zairakai/npm-packages/{{PACKAGE_SLUG}}",
+  "bugs": {
+    "url": "https://gitlab.com/zairakai/npm-packages/{{PACKAGE_SLUG}}/-/issues",
+    "email": "{{SERVICE_DESK_TOKEN}}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/zairakai/npm-packages/{{PACKAGE_SLUG}}.git"
+  },
+  "funding": [
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/c/zairakai"
+    },
+    {
+      "type": "twitch",
+      "url": "https://www.twitch.tv/zairakai"
+    }
+  ],
+  "license": "MIT",
+  "author": "Stanislas Poisson <stanislas.p@the-white-rabbits.fr> (https://the-white-rabbits.fr)",
+  "contributors": [
+    {
+      "name": "Stanislas Poisson",
+      "url": "https://gitlab.com/zairakai",
+      "role": "Maintainer"
+    }
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup --config config/dev-tools/tsup.config.js",
+    "docs": "typedoc --options config/dev-tools/typedoc.json",
+    "eslint": "eslint . --config config/dev-tools/eslint.config.js",
+    "eslint:fix": "eslint . --config config/dev-tools/eslint.config.js --fix",
+    "postinstall": "bash node_modules/@zairakai/js-dev-tools/scripts/setup-project.sh --silent || true",
+    "markdownlint": "markdownlint '**/*.md' --ignore node_modules --config config/dev-tools/.markdownlint.json",
+    "markdownlint:fix": "markdownlint '**/*.md' --ignore node_modules --config config/dev-tools/.markdownlint.json --fix",
+    "normalize": "make package-normalize",
+    "package:validate": "make package-validate",
+    "prettier": "prettier . --check --config config/dev-tools/prettier.config.js",
+    "prettier:fix": "prettier . --write --config config/dev-tools/prettier.config.js",
+    "setup": "bash node_modules/@zairakai/js-dev-tools/scripts/setup-project.sh",
+    "test": "vitest --config config/dev-tools/vitest.config.js",
+    "typecheck": "tsc --noEmit",
+    "validate": "make quality"
+  },
+  "devDependencies": {
+    "@types/node": "^25.4.0",
+    "@vitest/coverage-v8": "^4.0.0",
+    "@zairakai/js-dev-tools": "^1.0.0",
+    "knip": "^5.85.0",
+    "sort-package-json": "^3.6.1",
+    "tsup": "^8.0.0",
+    "typedoc": "^0.28.0",
+    "typescript": "^5.7.2",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
