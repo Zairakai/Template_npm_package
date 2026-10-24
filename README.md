@@ -8,7 +8,7 @@
 
 | Dependency | Version |
 | :--- | :--- |
-| Node.js | `>=22.0.0` |
+| Node.js | `>=24.0.0` |
 | TypeScript | `^5.7` |
 
 ---
